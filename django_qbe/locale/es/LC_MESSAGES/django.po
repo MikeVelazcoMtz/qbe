@@ -1,0 +1,222 @@
+# -*- coding: utf-8 -*-
+# django-qbe ES translation
+# Copyright (C) 2014
+# This file is distributed under the same license as the django-qbe package.
+# Miguel Angel Velazco <mvelazco@netwaremonitor>, 2014.
+#
+#, fuzzy
+
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-15 19:00+0600\n"
+"PO-Revision-Date:  2014-09-15 19:00+0600\n"
+"Last-Translator: Miguel Angel Velazco Martinez <mvelazco@netwarmonitor.com>\n"
+"Language-Team: Miguel Angel Velazco Martinez <mvelazco@netwarmonitor.com>\n"
+"Language: Spanish (Español) \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:29
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: forms.py:30
+msgid "Descending"
+msgstr "Descendente"
+
+#: forms.py:35 templates/qbe.html:48 templates/qbe.html.py:72
+msgid "Show"
+msgstr "Mostrar"
+
+#: forms.py:36 templates/qbe.html:49
+msgid "Model"
+msgstr "Modelo"
+
+#: forms.py:37 templates/qbe.html:50
+msgid "Field"
+msgstr "Campo"
+
+#: forms.py:38 templates/qbe.html:52
+msgid "Criteria"
+msgstr "Criterio"
+
+#: forms.py:39 templates/qbe.html:51
+msgid "Sort"
+msgstr "Ordenar"
+
+#: forms.py:123
+msgid "At least you must check a row to get."
+msgstr "Seleccione al menos una linea a mostrar."
+
+#: forms.py:320
+msgid "#"
+msgstr ""
+
+#: views.py:57 views.py:118 views.py:170
+msgid "Query by Example"
+msgstr "Constructor de consultas (QBE)"
+
+#: views.py:169
+msgid "Reports"
+msgstr "Reportes"
+
+#: widgets.py:10
+msgid "is equal to"
+msgstr "es igual a"
+
+#: widgets.py:11
+msgid "contains"
+msgstr "contiene"
+
+#: widgets.py:12
+msgid "matchs regex"
+msgstr "expresion regular"
+
+#: widgets.py:13
+msgid "starts with"
+msgstr "inicia con"
+
+#: widgets.py:14
+msgid "ends with"
+msgstr "termina con"
+
+#: widgets.py:15
+msgid "is greater than"
+msgstr "es mayor que"
+
+#: widgets.py:16
+msgid "is greater than or equal to"
+msgstr "es mayor o igual que"
+
+#: widgets.py:17
+msgid "is less than"
+msgstr "es menor que"
+
+#: widgets.py:18
+msgid "is less than or equal to"
+msgstr "es menor o igual que"
+
+#: widgets.py:19
+msgid "(i) is equal to"
+msgstr "(i) es igual a"
+
+#: widgets.py:20
+msgid "(i) contains"
+msgstr "(i) contiene"
+
+#: widgets.py:21
+msgid "(i) matchs regex"
+msgstr "(i) expresion régular"
+
+#: widgets.py:22
+msgid "(i) starts with"
+msgstr "(i) inicia con"
+
+#: widgets.py:23
+msgid "(i) ends with"
+msgstr "(i) termina con"
+
+#: widgets.py:24
+msgid "joins to"
+msgstr "se une con"
+
+#: widgets.py:33
+msgid "Check this"
+msgstr ""
+
+#: templates/qbe.html:18 templates/qbe_results.html:9
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/qbe.html:27
+msgid "Diagram"
+msgstr "Diagrama"
+
+#: templates/qbe.html:30
+msgid "Tabular"
+msgstr "Tablas"
+
+#: templates/qbe.html:33 templates/qbe.html.py:96
+msgid "Models"
+msgstr "Modelos"
+
+#: templates/qbe.html:53
+msgid "Delete"
+msgstr "Suprimir"
+
+#: templates/qbe.html:72
+msgid "rows"
+msgstr "Filas"
+
+#: templates/qbe.html:74
+msgid "Auto complete"
+msgstr "Auto-completado"
+
+#: templates/qbe.html:76
+msgid "Run"
+msgstr "Ejecutar"
+
+#: templates/qbe.html:80
+msgid "Database"
+msgstr "Base de datos"
+
+#: templates/qbe_results.html:9
+msgid "Results"
+msgstr "Résultados"
+
+#: templates/qbe_results.html:21
+#, fuzzy
+msgid "Showing all"
+msgstr "Mostrando todo"
+
+#: templates/qbe_results.html:21 templates/qbe_results.html.py:23
+#: templates/qbe_results.html:82
+msgid "result"
+msgstr "resultado"
+
+#: templates/qbe_results.html:23
+msgid "Showing from"
+msgstr "Mostrando de"
+
+#: templates/qbe_results.html:23
+msgid "to"
+msgstr "a"
+
+#: templates/qbe_results.html:23
+msgid "of"
+msgstr "de"
+
+#: templates/qbe_results.html:27
+msgid "show first ones"
+msgstr "Montrer les premiers résultats"
+
+#: templates/qbe_results.html:29
+msgid "show all"
+msgstr "mostrar todo"
+
+#: templates/qbe_results.html:31
+msgid "edit query"
+msgstr "Editar la consulta"
+
+#: templates/qbe_results.html:32
+msgid "view query"
+msgstr "Visualizar la consulta"
+
+#: templates/qbe_results.html:36
+msgid "Save query as"
+msgstr "Guardar consulta como"
+
+#: templates/qbe_results.html:39
+msgid "Drag this yo your bookmarks bar to save this query"
+msgstr "Arrastra esto hacia tu barra de marcadores para guardar esta consulta"
+
+#: templates/qbe_results.html:39
+msgid "bookmark"
+msgstr "marcador"
+
+#: templates/qbe_results.html:43
+msgid "Export to"
+msgstr "Exportar a"

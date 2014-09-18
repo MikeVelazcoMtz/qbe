@@ -6,15 +6,16 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
-from django.utils import simplejson
 from django.utils.translation import ugettext as _
 
 from django_qbe.forms import QueryByExampleFormSet, DATABASES
 from django_qbe.utils import (autocomplete_graph, qbe_models, formats,
                               pickle_encode, pickle_decode, get_query_hash,
                               admin_site)
-
-
+try: #Fix for deprecated simplejson
+    from django.utils import simplejson
+except:
+    import json as simplejson
 qbe_access_for = getattr(settings, "QBE_ACCESS_FOR", lambda u: u.is_staff)
 
 
