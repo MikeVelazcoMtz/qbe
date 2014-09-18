@@ -166,9 +166,16 @@ class BaseQueryByExampleFormSet(BaseFormSet):
             if not app_model_labels:
                 app_models = get_models(include_auto_created=True,
                                         include_deferred=True)
-                app_model_labels = [u"%s_%s" % (a._meta.app_label,
-                                                a._meta.module_name)
-                                    for a in app_models]
+                try:
+                    app_model_labels = [u"%s_%s" % 
+                        (a._meta.app_label,
+                         a._meta.module_name)
+                            for a in app_models]
+                except:
+                    app_model_labels = [u"%s_%s" % 
+                        (a._meta.app_label,
+                         a._meta.model_name)
+                            for a in app_models]
             if model in app_model_labels:
                 position = app_model_labels.index(model)
                 model = app_models[position]._meta.db_table
@@ -332,8 +339,14 @@ class BaseQueryByExampleFormSet(BaseFormSet):
                     try:
                         if appmodel in self._models:
                             _model = self._models[appmodel]
-                            _appmodel = u"%s_%s" % (_model._meta.app_label,
-                                                    _model._meta.module_name)
+                            try:
+                                _appmodel = u"%s_%s" % (
+                                    _model._meta.app_label,
+                                    _model._meta.module_name)
+                            except:   
+                                _appmodel = u"%s_%s" % (
+                                    _model._meta.app_label,
+                                    _model._meta.model_name)
                         else:
                             _appmodel = appmodel
                         admin_url = reverse("%s:%s_change" % (
