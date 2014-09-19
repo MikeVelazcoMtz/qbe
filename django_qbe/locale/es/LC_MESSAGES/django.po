@@ -219,3 +219,15 @@ msgstr "marcador"
 #: templates/qbe_results.html:43
 msgid "Export to"
 msgstr "Exportar a"
+
+#: templates/qbe.js:46
+msgid "Add another"
+msgstr "Agregar una fila"
+
+#: templates/qbe.js:48
+msgid "Remove"
+msgstr "Eliminar"
+
+#: templates/qbe.js:63
+msgid "Select at least one field to show"
+msgstr "Seleccione al menos un campo a mostrar"

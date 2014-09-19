@@ -6,7 +6,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-02 13:25+0000\n"
 "PO-Revision-Date: 2011-08-02 13:25+0000\n"
@@ -217,3 +217,15 @@ msgstr "favori"
 #: templates/qbe_results.html:43
 msgid "Export to"
 msgstr "Exporter en"
+
+#: templates/qbe.js:46
+msgid "Add another"
+msgstr "Ajouter un autre"
+
+#: templates/qbe.js:48
+msgid "Remove"
+msgstr "Supprimer"
+
+#: templates/qbe.js:63
+msgid "Select at least one field to show"
+msgstr "Sélectionnez au moins un champ pour l'afficher"

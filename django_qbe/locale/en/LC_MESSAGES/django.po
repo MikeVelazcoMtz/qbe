@@ -255,3 +255,15 @@ msgstr ""
 #: templates/qbe_results.html:48
 msgid "Export to"
 msgstr ""
+
+#: templates/qbe.js:46
+msgid "Add another"
+msgstr ""
+
+#: templates/qbe.js:48
+msgid "Remove"
+msgstr ""
+
+#: templates/qbe.js:63
+msgid "Select at least one field to show"
+msgstr ""
