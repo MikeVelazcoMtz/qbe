@@ -46,7 +46,7 @@ msgstr "Criterio"
 msgid "Sort"
 msgstr "Ordenar"
 
-#: forms.py:123
+#: forms.py:135
 msgid "At least you must check a row to get."
 msgstr "Seleccione al menos una línea a mostrar."
 
@@ -167,9 +167,8 @@ msgid "Results"
 msgstr "Resultados"
 
 #: templates/qbe_results.html:21
-#, fuzzy
 msgid "Showing all"
-msgstr "Mostrando todo"
+msgstr "Mostrando todos los"
 
 #: templates/qbe_results.html:21 templates/qbe_results.html.py:23
 #: templates/qbe_results.html:82
@@ -231,3 +230,11 @@ msgstr "Eliminar"
 #: templates/qbe.js:63
 msgid "Select at least one field to show"
 msgstr "Seleccione al menos un campo a mostrar"
+
+#: templates/qbe.html:58
+msgid "Show as"
+msgstr "Mostrar como"
+
+#: templates/qbe.html:62
+msgid "Group by"
+msgstr "Campo agrupador"

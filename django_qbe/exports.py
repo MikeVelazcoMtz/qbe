@@ -1,7 +1,14 @@
 # -*- coding: utf-8 -*-
 import codecs
 import csv
+from dicttoxml import dicttoxml
 from StringIO import StringIO
+
+try:
+    from django.utils import simplejson
+except:
+    import json as simplejson
+
 
 from django.http import HttpResponse
 from django.utils.datastructures import SortedDict
@@ -75,18 +82,48 @@ def base_export(labels, results, dialect=csv.excel_tab):
 def csv_format(labels, results):
     output = base_export(labels, results, dialect=csv.excel)
     mimetype = "text/csv"
-    return HttpResponse(output, mimetype=mimetype)
+    try:
+        response = HttpResponse(output, mimetype=mimetype)
+    except:
+        response = HttpResponse(output, content_type=mimetype)
+    return response
 
 
 @formats.add("ods")
 def ods_format(labels, results):
     output = base_export(labels, results)
     mimetype = "application/vnd.oasis.opendocument.spreadsheet"
-    return HttpResponse(output, mimetype=mimetype)
+    try:
+        response = HttpResponse(output, mimetype=mimetype)
+    except:
+        response = HttpResponse(output, content_type=mimetype)
+    return response
 
 
 @formats.add("xls")
 def xls_format(labels, results):
     output = base_export(labels, results)
     mimetype = "application/vnd.ms-excel"
-    return HttpResponse(output, mimetype=mimetype)
+    try:
+        response = HttpResponse(output, mimetype=mimetype)
+    except:
+        response = HttpResponse(output, content_type=mimetype)
+    return response
+
+@formats.add('xml')
+def xml_format(labels, results):
+    final = [ dict(zip(labels,item)) for item in results]
+    try:
+       response = HttpResponse(dicttoxml(final), mimetype='application/text')
+    except:
+       response = HttpResponse(dicttoxml(final), content_type='application/text')
+    return response
+
+@formats.add("json")
+def json_format(labels, results):
+    final = [ dict(zip(labels,item)) for item in results]
+    try:
+       response = HttpResponse(dicttoxml(final), mimetype='application/text')
+    except:
+       response = HttpResponse(dicttoxml(final), content_type='application/text')
+    return response

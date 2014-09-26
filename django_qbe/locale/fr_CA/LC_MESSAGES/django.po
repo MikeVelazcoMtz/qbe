@@ -44,7 +44,7 @@ msgstr "Critère"
 msgid "Sort"
 msgstr "Trier"
 
-#: forms.py:123
+#: forms.py:135
 msgid "At least you must check a row to get."
 msgstr "Sélectionner au moins une ligne à afficher."
 
@@ -229,3 +229,11 @@ msgstr "Supprimer"
 #: templates/qbe.js:63
 msgid "Select at least one field to show"
 msgstr "Sélectionnez au moins un champ pour l'afficher"
+
+#: templates/qbe.html:58
+msgid "Show as"
+msgstr "Afficher comme"
+
+#: templates/qbe.html:62
+msgid "Group by"
+msgstr "Groupe par"

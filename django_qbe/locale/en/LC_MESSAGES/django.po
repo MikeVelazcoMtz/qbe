@@ -45,7 +45,7 @@ msgstr ""
 msgid "Sort"
 msgstr ""
 
-#: forms.py:123
+#: forms.py:135
 msgid "At least you must check a row to get."
 msgstr ""
 
@@ -266,4 +266,12 @@ msgstr ""
 
 #: templates/qbe.js:63
 msgid "Select at least one field to show"
+msgstr ""
+
+#: templates/qbe.html:58
+msgid "Show as"
+msgstr ""
+
+#: templates/qbe.html:62
+msgid "Group by"
 msgstr ""
