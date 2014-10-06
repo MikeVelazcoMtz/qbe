@@ -238,3 +238,19 @@ msgstr "Mostrar como"
 #: templates/qbe.html:62
 msgid "Group by"
 msgstr "Campo agrupador"
+
+#: savedqueries/models.py:23 templates/qbe.html:29
+msgid "Saved query"
+msgstr "Consulta Almacenada"
+
+#: savedqueries/models.py:24 templates/qbe.html:31
+msgid "Saved queries"
+msgstr "Consultas Almacenadas"
+
+#: savedqueries/admin.py:33
+msgid "Edit"
+msgstr "Editar"
+
+#: templates/qbe_results.html:43
+msgid "model"
+msgstr "Registro en BD"

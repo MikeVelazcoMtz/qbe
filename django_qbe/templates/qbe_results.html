@@ -40,7 +40,7 @@
     </li>
     {% if savedqueries_installed %}
     <li>
-        <a href="{% url "admin:savedqueries_savedquery_add" %}?hash={{ query_hash }}">model</a>
+        <a href="{% url "admin:savedqueries_savedquery_add" %}?hash={{ query_hash }}">{% trans "model" %}</a>
     </li>
     {% endif %}
     {% for format in formats %}

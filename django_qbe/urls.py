@@ -4,7 +4,7 @@ try:
 except ImportError:
     # Backward compatibility for Django prior to 1.6
     from django.conf.urls.defaults import patterns, url
-from django_qbe.exports import formats
+from .exports import formats
 
 urlpatterns = patterns('django_qbe.views',
     url(r'^$', 'qbe_form', name="qbe_form"),
