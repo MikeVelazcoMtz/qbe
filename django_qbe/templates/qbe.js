@@ -64,6 +64,10 @@ qbe.Containers = [];
             } else {
                 qbe.Diagram.saveBoxPositions();
             }
+            $('select').each(function(){
+                if($(this).val() === 'join')
+                    alert($(this).attr('id'));
+            });
             return checked;
         });
 
@@ -102,8 +106,8 @@ qbe.Containers = [];
             });
         };
 
-        $(".qbeFillModels").live("change", qbe.Core.fillModelsEvent);
-        $(".qbeFillFields").live("change", qbe.Core.fillFieldsEvent);
+        $('body').delegate('.qbeFillModels', 'change', qbe.Core.fillModelsEvent);
+        $('body').delegate('.qbeFillFields','change', qbe.Core.fillFieldsEvent);
 
         function initialize() {
             if (qbe.Data) {
