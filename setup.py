@@ -23,9 +23,9 @@ setup(
     author='Javier de la Rosa',
     author_email='versae@gmail.com',
     url='http://versae.github.com/qbe/',
-    description='Django admin tool for custom reports',
+    description='MikeVelazcoMtz fork for the Django admin tool for custom reports',
     long_description=read('README.rst'),
-    license='MIT',
+    license='private',
     keywords='qbe django admin reports query sql',
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -40,5 +40,5 @@ setup(
     zip_safe=False,
     packages=find_packages(),
     include_package_data=True,
-    install_requires=['django-picklefield'],
+    install_requires=['django-picklefield','dicttoxml'],
 )
