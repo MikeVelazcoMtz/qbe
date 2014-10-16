@@ -116,7 +116,8 @@ def xml_format(labels, results):
     try:
        response = HttpResponse(dicttoxml(final), mimetype='application/text')
     except:
-       response = HttpResponse(dicttoxml(final), content_type='application/text')
+       response = HttpResponse(dicttoxml(final), 
+        content_type='application/text')
     return response
 
 @formats.add("json")
@@ -125,5 +126,6 @@ def json_format(labels, results):
     try:
        response = HttpResponse(dicttoxml(final), mimetype='application/text')
     except:
-       response = HttpResponse(dicttoxml(final), content_type='application/text')
+       response = HttpResponse(dicttoxml(final), 
+        content_type='application/text')
     return response

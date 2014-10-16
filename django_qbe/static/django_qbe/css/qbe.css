@@ -114,7 +114,15 @@ div.qbeDiagram .resizehandle {
    cursor: se-resize;
 }
 
-
+div#ValidationErrors{
+  display:none;
+  border: 1px solid #C22;
+  color:#C11;
+  font-size: 12px !important;
+  font-weight: bold;
+  padding: 5px 5px 4px 25px;
+  margin: 0px 0px 3px;
+}
  
 /**
  * Layers

@@ -59,7 +59,7 @@ except ImportError:
     pass
 
 
-def qbe_models(admin_site=None, only_admin_models=False, json=False):
+def qbe_models(admin_site=None, only_admin_models=False, json=False, disable_models=None):
     app_models = get_models(include_auto_created=True, include_deferred=True)
     app_models_with_no_includes = get_models(include_auto_created=False,
                                              include_deferred=False)
@@ -67,8 +67,16 @@ def qbe_models(admin_site=None, only_admin_models=False, json=False):
         admin_models = [m for m, a in admin_site._registry.items()]
     else:
         admin_models = []
-    if only_admin_models:
-        app_models = admin_models
+
+    if disable_models:
+        drop_models = set([ i if i._meta.app_label in disable_models else None 
+            for i in admin_models])
+        drop_models.remove(None)
+        admin_models = list(set(admin_models)^drop_models) 
+
+    app_models = admin_models
+
+
     graphs = {}
 
     def get_field_attributes(field):

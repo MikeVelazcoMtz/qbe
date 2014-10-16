@@ -254,3 +254,20 @@ msgstr "Editar"
 #: templates/qbe_results.html:43
 msgid "model"
 msgstr "Registro en BD"
+
+#: templates/qbe.js:81 templates/qbe.js:86
+msgid "Line"
+msgstr "Linea"
+
+#: templates/qbe.js:82
+msgid "You cannot group by this field"
+msgstr "No es posible agrupar por este campo"
+
+#: templates/qbe.js:87
+msgid "You cannot show this field"
+msgstr "No es posible mostrar este campo"
+
+#: templates/qbe.js:92
+msgid "Hello, you have some validation errors"
+msgstr "Hola, tienes algunos errores de validacion"
+

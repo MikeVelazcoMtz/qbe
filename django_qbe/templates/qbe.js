@@ -56,18 +56,41 @@ qbe.Containers = [];
         $(rows +":last").addClass("add-row");
 
         $("a.qbeModelAnchor").click(qbe.Core.toggleModel);
+        $("input:submit[name=_save]").click(function(evt){
+            /*
+                Validaciones:
 
-        $(".submit-row input[type='submit']").click(function() {
+            */
+
+            errorString = "";
             var checked = ($("input[type='checkbox']:checked").length != 0);
             if (!checked) {
                 alert("{% trans "Select at least one field to show" %}");
+                evt.preventDefault();
             } else {
                 qbe.Diagram.saveBoxPositions();
             }
+
             $('select').each(function(){
-                if($(this).val() === 'join')
-                    alert($(this).attr('id'));
+                if($(this).val() === 'join'){
+                    groupBySelector = "#" + $(this).attr('id').replace('-criteria_0','-group_by');
+                    showSelector = "#" + $(this).attr('id').replace('-criteria_0','-show');
+                    index = $(this).parents('tr').index()+1;
+                    if($(groupBySelector).is(':checked')){
+                        evt.preventDefault();
+                        errorString += '<li>{% trans "Line" %} ' + index + ':';
+                        errorString +=' {% trans "You cannot group by this field" %}</li>';
+                    }
+                    if($(showSelector).is(':checked')){
+                        evt.preventDefault();
+                        errorString += '<li>{% trans "Line" %} ' + index + ':';
+                        errorString += ' {% trans "You cannot show this field" %}</li>';
+                    }
+
+                }
             });
+            finalErrorString = '<p>{% trans "Hello, you have some validation errors" %}:</p><ul>' + errorString + "</ul>";
+            $("#ValidationErrors").html(finalErrorString).slideDown('slow');
             return checked;
         });
 

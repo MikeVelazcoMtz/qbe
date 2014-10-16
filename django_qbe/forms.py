@@ -134,6 +134,7 @@ class BaseQueryByExampleFormSet(BaseFormSet):
         if not selects:
             validation_message = _(u"At least you must check a row to get.")
             raise forms.ValidationError, validation_message
+        print self._selects
         self._selects = selects
         self._aliases = aliases
         self._froms = froms

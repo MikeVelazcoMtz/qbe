@@ -34,7 +34,8 @@ def qbe_form(request, query_hash=None):
         else:
             json_data = simplejson.dumps(data)
     apps = get_apps()
-    models = qbe_models(admin_site=admin_site, only_admin_models=False)
+    models = qbe_models(admin_site=admin_site, only_admin_models=False, 
+        disable_models=['auth','savedqueries'])
     json_models = qbe_models(admin_site=admin_site, json=True)
     context = {
         'apps': apps,
@@ -59,12 +60,12 @@ def qbe_proxy(request):
         data = request.POST.copy()
         db_alias = request.session.get("qbe_database", "default")
         formset = QueryByExampleFormSet(data=data, using=db_alias)
-        if formset.is_valid():
-            pickled = pickle_encode(data)
-            query_hash = get_query_hash(pickled)
-            query_key = "qbe_query_%s" % query_hash
-            request.session[query_key] = data
-            return redirect("qbe_results", query_hash=query_hash)
+        # if formset.is_valid():
+        pickled = pickle_encode(data)
+        query_hash = get_query_hash(pickled)
+        query_key = "qbe_query_%s" % query_hash
+        request.session[query_key] = data
+        return redirect("qbe_results", query_hash=query_hash)
     return redirect("qbe_form")
 
 
