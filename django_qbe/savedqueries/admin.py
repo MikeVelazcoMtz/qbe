@@ -21,7 +21,7 @@ from .models import SavedQuery
 
 
 class SavedQueryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'date_created', 'query_hash',
+    list_display = ('name', 'description', 'date_created', #'query_hash',
                     'run_link')
 
     def run_link(self, obj):
@@ -37,7 +37,10 @@ class SavedQueryAdmin(admin.ModelAdmin):
             def wrapper(*args, **kwargs):
                 return self.admin_site.admin_view(view)(*args, **kwargs)
             return update_wrapper(wrapper, view)
-        info = self.model._meta.app_label, self.model._meta.module_name
+        try:
+            info = self.model._meta.app_label, self.model._meta.module_name
+        except:
+            info = self.model._meta.app_label, self.model._meta.model_name            
         urlpatterns = patterns('',
             url(r'^(.+)/run/$', wrap(self.run_view), name='%s_%s_run' % info),
         )

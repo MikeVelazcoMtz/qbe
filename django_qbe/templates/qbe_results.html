@@ -29,8 +29,8 @@
     {% else %}
     (<a href="{% url "qbe_results" query_hash %}?show=all">{% trans "show all" %}</a>
     {% endifequal %}
-    | <a href="{% url "qbe_form" query_hash %}">{% trans "edit query" %}</a>
-    | <a href="#" onclick="jQuery('#qbeSQL').toggle();return false;">{% trans "view query" %}</a>)
+    | <a href="{% url "qbe_form" query_hash %}">{% trans "edit query" %}</a>)
+    {# | <a href="#" onclick="jQuery('#qbeSQL').toggle();return false;">{% trans "view query" %}</a>) #}
 </span>
 <ul class="object-tools">
     <li id="qbeSaveQueryLi">
@@ -52,7 +52,7 @@
 </ul>
 {% endblock %}
 <code id="qbeSQL" style="display: none;">
-{{ query }}
+{# {{ query }} #}
 </code>
 <div id="changelist" class="module">
 <table cellspacing="0">
@@ -69,14 +69,14 @@
         {% if admin_urls %}
             {% for result, url in result_tuple %}
                 {% if url %}
-                <td><a href={{ url }}>{{ result }}</a></td>
+                <td>{{ result }}</td>
                 {% else %}
                 <td>{{ result }}</td>
                 {% endif %}
             {% endfor %}
         {% else %}
             {% for result in result_tuple %}
-                <td>{{ result }}</a></td>
+                <td>{{ result }}</td>
             {% endfor %}
         {% endif %}
         </tr>

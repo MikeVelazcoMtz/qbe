@@ -255,7 +255,7 @@ msgstr "Editar"
 msgid "model"
 msgstr "Registro en BD"
 
-#: templates/qbe.js:81 templates/qbe.js:86
+#: templates/qbe.js:80 template/qbe.js:85 template/qbe.js:91 template/qbe.js:93 template/qbe.js:99 template/qbe.js:103 template/qbe.js:108 template/qbe.js:123
 msgid "Line"
 msgstr "Linea"
 
@@ -271,3 +271,38 @@ msgstr "No es posible mostrar este campo"
 msgid "Hello, you have some validation errors"
 msgstr "Hola, tienes algunos errores de validacion"
 
+#: savedqueries/models.py:15
+msgid "hash"
+msgstr "Encriptado"
+
+#: savedqueries/models.py:16
+msgid "name"
+msgstr "Nombre"
+
+#: savedqueries/models.py:17
+msgid "description"
+msgstr "Descripción"
+
+#: savedqueries/models.py:19
+msgid "date created"
+msgstr "Fecha de creación"
+
+#: savedqueries/models.py:20
+msgid "date updated"
+msgstr "Fecha de Actualización"
+
+#: templates/qbe.js:81 templates/qbe.js:92 
+msgid "You must select a model to show"
+msgstr "Debes seleccionar un modelo a mostrar"
+
+#: templates/qbe.js:86 templates/qbe.js:94
+msgid "You must select a field from this model to show"
+msgstr "Debes seleccionar un campo de este modelo para mostrarlo"
+
+#: templates/qbe.js:100
+msgid "You must select correctly a field to group by this field"
+msgstr "Debes seleccionar correctamente un campo para poder agrupar"
+
+#: templates/qbe.js:104
+msgid "You must select correctly a field to set a alias"
+msgstr "Debes seleccionar correctamente un campo para re-nombrarlo"

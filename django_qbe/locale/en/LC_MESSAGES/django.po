@@ -264,7 +264,7 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: templates/qbe.js:63
+#: templates/qbe.js:66
 msgid "Select at least one field to show"
 msgstr ""
 
@@ -276,19 +276,35 @@ msgstr ""
 msgid "Group by"
 msgstr ""
 
-#: templates/qbe.js:81 templates/qbe.js:86
+#: templates/qbe.js:81 templates/qbe.js:80 template/qbe.js:85 template/qbe.js:91 template/qbe.js:93 template/qbe.js:99 template/qbe.js:103 template/qbe.js:108 template/qbe.js:123
 msgid "Line"
-msgstr "Linea"
+msgstr ""
 
-#: templates/qbe.js:82
+#: templates/qbe.js:124
 msgid "You cannot group by this field"
 msgstr ""
 
-#: templates/qbe.js:87
+#: templates/qbe.js:109
 msgid "You cannot show this field"
 msgstr ""
 
-#: templates/qbe.js:92
+#: templates/qbe.js:131
 msgid "Hello, you have some validation errors"
+msgstr ""
+
+#: templates/qbe.js:81 templates/qbe.js:92 
+msgid "You must select a model to show"
+msgstr ""
+
+#: templates/qbe.js:86 templates/qbe.js:94
+msgid "You must select a field from this model to show"
+msgstr ""
+
+#: templates/qbe.js:100
+msgid "You must select correctly a field to group by this field"
+msgstr ""
+
+#: templates/qbe.js:104
+msgid "You must select correctly a field to set a alias"
 msgstr ""
 
