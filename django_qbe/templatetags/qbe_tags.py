@@ -30,21 +30,23 @@ def qbe_paginator(total_pages, rows_per_page, current_page):
         pages = 1
     else:
         pages = (total_pages / rows_per_page)
+        float_pages =  float(total_pages)/float(rows_per_page)
+        pages = pages+1 if float_pages > pages else pages
     output = []
     if pages < 11:
         output += _get_range_markup(0, pages)
     elif current_page < 6:
         output += _get_range_markup(0, current_page + 2)
         output += ["..."]
-        output += _get_range_markup(pages - 2, pages)
+        output += _get_range_markup(pages - 1, pages)
     elif current_page > pages - 6:
         output += _get_range_markup(0, 2)
         output += ["..."]
-        output += _get_range_markup(current_page - 2, pages)
+        output += _get_range_markup(current_page - 1, pages)
     else:
         output += _get_range_markup(0, 2)
         output += ["..."]
-        output += _get_range_markup(current_page - 2, current_page + 3)
+        output += _get_range_markup(current_page - 1, current_page + 3)
         output += ["..."]
-        output += _get_range_markup(pages - 2, pages)
+        output += _get_range_markup(pages - 1, pages)
     return mark_safe(u"\n".join(output))

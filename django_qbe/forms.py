@@ -314,8 +314,7 @@ class BaseQueryByExampleFormSet(BaseFormSet):
         else:
             sql = query
         if settings.DEBUG:
-            # print sql
-            pass
+            print sql
         cursor = self._db_connection.cursor()
         cursor.execute(sql, tuple(self._params))
         query_results = cursor.fetchall()
@@ -388,7 +387,6 @@ class BaseQueryByExampleFormSet(BaseFormSet):
             labels = []
         if aliases:
             labels.extend(self._aliases)
-            print "%s vs %s" % (self._aliases, self._selects)
             return labels
         if add_extra_ids:
             selects = self._get_selects_with_extra_ids()

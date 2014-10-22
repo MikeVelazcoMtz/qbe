@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.db.models import get_apps
+from django.db.models import get_apps, get_model
 from django.conf import settings
 from django.contrib.auth.decorators import user_passes_test
 from django.core.urlresolvers import reverse
@@ -7,7 +7,6 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
-
 from django_qbe.forms import QueryByExampleFormSet, DATABASES
 from django_qbe.utils import (autocomplete_graph, qbe_models, formats,
                               pickle_encode, pickle_decode, get_query_hash,
@@ -66,7 +65,6 @@ def qbe_proxy(request):
         request.session[query_key] = data
         return redirect("qbe_results", query_hash=query_hash)
     return redirect("qbe_form")
-
 
 @user_passes_test(qbe_access_for)
 def qbe_results(request, query_hash):
@@ -171,3 +169,13 @@ def qbe_autocomplete(request):
         models = request.POST.get('models', []).split(",")
         nodes = autocomplete_graph(admin_site, models)
     return HttpResponse(simplejson.dumps(nodes), mimetype="application/json")
+
+# @user_passes_test(qbe_access_for)
+def qbe_redirect(request, query_hash):
+    savedqueries  = get_model('savedqueries', 'savedquery')
+    try:
+        reg = savedqueries.objects.get(pk=query_hash)
+    except:
+        return redirect(reverse("admin:savedqueries_savedquery_add") + "?hash=" + query_hash)
+    else:
+        return redirect(reverse("admin:savedqueries_savedquery_change", args=[query_hash]))

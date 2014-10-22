@@ -27,7 +27,7 @@
   {% if savedqueries_installed %}
   <li>
   {% if query_hash %}
-    <a href="{% url "admin:savedqueries_savedquery_change" query_hash %}">{% trans "Saved query" %}</a>
+    <a href="{% url "qbe_redirect" query_hash %}">{% trans "Saved query" %}</a>
   {% else %}
     <a href="{% url "admin:savedqueries_savedquery_changelist" %}">{% trans "Saved queries" %}</a>
   {% endif %}

@@ -146,11 +146,15 @@ qbe.Containers = [];
 
         $('body').delegate('select[name$=-field]', 'change', function(event) {
             aliasField = "#" + $(this).attr('id').replace('-field','-alias');
+            showField = "#" + $(this).attr('id').replace('-field','-show');
             text = $('option:selected', this).text();
-            if($('option:selected', this).val().length && !$('option:selected', this).hasClass('foreign'))
-                $(aliasField).val(text);
-            else
-                $(aliasField).val('');
+            if($('option:selected', this).val().length && !$('option:selected', this).hasClass('foreign')) {
+                $(aliasField).val(text).attr('required', true);
+                $(showField).attr('checked', true);
+            } else {
+                $(aliasField).val('').attr('required', false);
+                $(showField).attr('checked', false);
+            }
         });
 
         $("#ValidationErrors").click(function() {
@@ -173,7 +177,7 @@ qbe.Containers = [];
             });
         });
 
-        function removeEmptyLines(){
+        function removeEmptyLines() {
             $('#qbeConditionsTable tbody tr').each(function(){
                 inputSelector = $('input,select', this).not('select[name$=-sort]');
                 if (inputSelector.length) {
