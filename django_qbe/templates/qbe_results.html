@@ -5,9 +5,15 @@
 {% block extrahead %}
 <script type="text/javascript" src="{% firstof STATIC_URL MEDIA_URL '/static/' %}django_qbe/js/jquery.js"></script>
 <link rel="stylesheet" type="text/css" href="{% firstof STATIC_URL MEDIA_URL '/static/' %}django_qbe/css/qbe.css" />
+{% if QBE_MENU_EDIT %}
+  <link rel="stylesheet" type="text/css" href="{% firstof STATIC_URL MEDIA_URL '/static/' %}django_qbe/css/{{ QBE_MENU_EDIT }}.css"/>
+{% endif %}
 {% endblock %}
 
-{% block breadcrumbs %}<div class="breadcrumbs"><a href="{% url "admin:index" %}">{% trans 'Home' %}</a>{% if title %} &rsaquo; <a href="{% url "qbe_form" %}">{{ title }}</a> &rsaquo; {% trans "Results" %}{% endif %}</div>
+{% block breadcrumbs %}
+    {% if SHOW_BREADCRUMBS %}
+        <div class="breadcrumbs"><a href="{% url "admin:index" %}">{% trans 'Home' %}</a>{% if title %} &rsaquo; <a href="{% url "qbe_form" %}">{{ title }}</a> &rsaquo; {% trans "Results" %}{% endif %}</div>
+    {% endif %}
 {% endblock %}
 
 {% block content_title %}{% if title %}

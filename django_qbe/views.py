@@ -20,6 +20,7 @@ qbe_access_for = getattr(settings, "QBE_ACCESS_FOR", lambda u: u.is_staff)
 
 @user_passes_test(qbe_access_for)
 def qbe_form(request, query_hash=None):
+    disable_models = getattr(settings,  'QBE_DISABLE_MODELS', [])
     query_key = "qbe_query_%s" % query_hash
     db_alias = request.session.get("qbe_database", "default")
     formset = QueryByExampleFormSet(using=db_alias)
@@ -34,7 +35,7 @@ def qbe_form(request, query_hash=None):
             json_data = simplejson.dumps(data)
     apps = get_apps()
     models = qbe_models(admin_site=admin_site, only_admin_models=False, 
-        disable_models=['auth','savedqueries'])
+        disable_models=disable_models)
     json_models = qbe_models(admin_site=admin_site, json=True)
     context = {
         'apps': apps,
@@ -48,6 +49,8 @@ def qbe_form(request, query_hash=None):
         'savedqueries_installed': 'django_qbe.savedqueries' in settings.INSTALLED_APPS,
         'aliases_enabled': getattr(settings, 'QBE_ALIASES', False),
         'group_by_enabled': getattr(settings, 'QBE_GROUP_BY', False),
+        'QBE_MENU_EDIT': getattr(settings, 'QBE_MENU_EDIT', False),
+        'QBE_SHOW_BREADCRUMBS': getattr(settings, 'QBE_SHOW_BREADCRUMBS', True)
     }
     return render(request, 'qbe.html', context)
 
@@ -118,6 +121,8 @@ def qbe_results(request, query_hash):
             'admin_urls': (admin_name != None and formset.has_admin_urls()),
             'formats': formats,
             'savedqueries_installed': 'django_qbe.savedqueries' in settings.INSTALLED_APPS,
+            'QBE_MENU_EDIT': getattr(settings, 'QBE_MENU_EDIT', False),
+            'QBE_SHOW_BREADCRUMBS': getattr(settings, 'QBE_SHOW_BREADCRUMBS', True)
         }
         return render(request, 'qbe_results.html', context)
     return redirect("qbe_form")

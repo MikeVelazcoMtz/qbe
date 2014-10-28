@@ -14,11 +14,45 @@
 <script type="text/javascript" src="{% firstof STATIC_URL MEDIA_URL '/static/' %}django_qbe/js/qbe.diagram.js"></script>
 <link rel="stylesheet" type="text/css" href="{% firstof STATIC_URL MEDIA_URL '/static/' %}admin/css/forms.css" />
 <link rel="stylesheet" type="text/css" href="{% firstof STATIC_URL MEDIA_URL '/static/' %}django_qbe/css/qbe.css"/>
+{% if QBE_MENU_EDIT %}
+  <link rel="stylesheet" type="text/css" href="{% firstof STATIC_URL MEDIA_URL '/static/' %}django_qbe/css/{{ QBE_MENU_EDIT }}.css"/>
+{% endif %}
 {% endblock %}
+{% block branding %}
+  {% if QBE_MENU_EDIT %}
+    {% with QBE_MENU_EDIT|add:"_branding.html"  as template %}
+      {% include template %}
+    {% endwith %}
+  {% else %}
+      {{ block.super }}
+  {% endif %}
+{% endblock branding %}
 
-{% block breadcrumbs %}<div class="breadcrumbs"><a href="{% url "admin:index" %}">{% trans 'Home' %}</a>{% if title %} &rsaquo; {{ title }}{% endif %}</div>
+{% block welcome-msg %}
+  {% if QBE_MENU_EDIT %}
+    {% with QBE_MENU_EDIT|add:"_welcome.html"  as template %}
+      {% include template %}
+    {% endwith %}
+  {% else %}
+      {{ block.super }}
+  {% endif %}
+{% endblock welcome-msg %}
+
+{% block userlinks %}
+  {% if QBE_MENU_EDIT %}
+    {% with QBE_MENU_EDIT|add:"_userlinks.html"  as template %}
+      {% include template %}
+    {% endwith %}
+  {% else %}
+      {{ block.super }}
+  {% endif %}
+{% endblock userlinks %}
+
+{% block breadcrumbs %}
+{% if SHOW_BREADCRUMBS %}
+  <div class="breadcrumbs"><a href="{% url "admin:index" %}">{% trans 'Home' %}</a>{% if title %} &rsaquo; {{ title }}{% endif %}</div>  
+{% endif %}
 {% endblock %}
-
 {% block pretitle %}{% endblock %}
 {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
 {% block content %}
@@ -44,7 +78,6 @@
   </li>
 </ul>
 {% endblock %}
-
 <form id="qbeForm" method="post" action="{% url "qbe_proxy" %}">
 {% csrf_token %}
 <div class="qbeContainer qbeDiagram" id="qbeDiagram" style="display: none;">

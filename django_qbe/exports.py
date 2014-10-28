@@ -124,8 +124,9 @@ def xml_format(labels, results):
 def json_format(labels, results):
     final = [ dict(zip(labels,item)) for item in results]
     try:
-       response = HttpResponse(dicttoxml(final), mimetype='application/text')
+       response = HttpResponse(simplejson.dumps(final), 
+        mimetype='application/text')
     except:
-       response = HttpResponse(dicttoxml(final), 
+       response = HttpResponse(simplejson.dumps(final), 
         content_type='application/text')
     return response

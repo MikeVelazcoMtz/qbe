@@ -20,6 +20,7 @@ qbe.Containers = [];
             selectTab("Tabular");
             return false;
         });
+
         $("#qbeDiagramTab").click(function() {
             selectTab("Diagram");
             $(window).resize();
@@ -137,11 +138,17 @@ qbe.Containers = [];
         $('body').delegate('select[name$=-criteria_0]', 'change', function(event) {
             aliasField = "#" + $(this).attr('id').replace('-criteria_0','-alias');
             fieldField = "#" + $(this).attr('id').replace('-criteria_0','-field');
-            criteriaField = "#" + $(this).attr('id').replace('-criteria_0','-criteria_1');
-            if($('option:selected', this).val() === 'join')
-                $(aliasField).val("");
-            else
+            showField  = "#" + $(this).attr('id').replace('-criteria_0','-show');
+            groupField = "#" + $(this).attr('id').replace('-criteria_0','-group_by');
+            if($('option:selected', this).val() === 'join'){
+                $(aliasField).val("").attr('required',false);
+                $(showField + "," + groupField).attr('checked', false);
+            }
+            else{
                 $(criteriaField).val("");
+                if($(showField).is(":checked"))
+                    $(aliasField).attr('required', true);
+            }
         });
 
         $('body').delegate('select[name$=-field]', 'change', function(event) {
@@ -157,9 +164,18 @@ qbe.Containers = [];
             }
         });
 
+        $('input[type=checkbox][name$=-show]').change(function(event) {
+            aliasId = "#" + $(this).attr('id').replace('-show','-alias');
+            fieldId = "#" + $(this).attr('id').replace('-show','-field');
+            required = ($(this).is(":checked")) ? true : false;
+            text = ($(this).is(":checked")) ? $('option:selected', fieldId).text() : "";
+            $(aliasId).attr('required', required).val(text);
+        });
+
         $("#ValidationErrors").click(function() {
             $(this).slideUp('slow');
         });
+        
         $("#autocomplete").click(function() {
             var models = [];
             $(".qbeFillModels :selected").each(function() {
