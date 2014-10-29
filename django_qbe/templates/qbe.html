@@ -20,7 +20,7 @@
 {% endblock %}
 {% block branding %}
   {% if QBE_MENU_EDIT %}
-    {% with QBE_MENU_EDIT|add:"_branding.html"  as template %}
+    {% with "django_qbe/"|add:QBE_MENU_EDIT|add:"_branding.html"  as template %}
       {% include template %}
     {% endwith %}
   {% else %}
@@ -40,7 +40,7 @@
 
 {% block userlinks %}
   {% if QBE_MENU_EDIT %}
-    {% with QBE_MENU_EDIT|add:"_userlinks.html"  as template %}
+    {% with "django_qbe/"|add:QBE_MENU_EDIT|add:"_userlinks.html"  as template %}
       {% include template %}
     {% endwith %}
   {% else %}
